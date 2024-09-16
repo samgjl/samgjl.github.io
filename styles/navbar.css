@@ -88,18 +88,36 @@ html {
   }
 
 @media (max-width: 900px) {
-  .links {
-    display: none;
+
+  .links.collapsed a,.nav-item {
+    height: 0;
+    opacity: 0;
+    padding: 0;
+    transition: all 0.5s;
   }
+  
+  .links.expanded a,.nav-item {
+    height: 30px;
+    opacity: 1;
+    transition: all 0.5s;
+  }
+
   /* Top element: */
   .navbar a {
     width: 100%;
+    padding: 15px 0px;
+  }
+  .navbar a img {
+    margin: 0px;
+    padding: 0px;
   }
   .navbar .samgjl {
     display: none;
   }
   .navbar .hamburger {
     display: block;
+    margin: 0px;
+    padding: 0px;
   }
   /* Center elements inside the .links class */
   .navbar .nav-item {
