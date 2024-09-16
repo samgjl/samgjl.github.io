@@ -9,43 +9,26 @@ html {
   min-height: 100vh;
 }
 
-/* Media query for smaller screens */
-@media only screen and (max-width: 900px) {
-  .navbar {
-    flex-wrap: wrap;
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-  .navbar a {
-    float: center;
-    text-align: center;
-    width: 100%;
-    border-radius: 0;
-  }
-
-  .connect {
-    float: none; /* Remove the float */
-    background-color: #1DB954;
-    color: white;
-    margin: 30px auto 30px auto;
-    font-weight: normal;
-  }
-
-
-  /* TODO: Figure out how the "Connect Spotify" button works */
-}
-
 /*++++++++++ HEADER ++++++++++*/
 
 .navbar {
-    /* font-family: Arial, Helvetica, sans-serif; */
-    /* position: fixed; */
     background-color: #191414;
     overflow: hidden;
     margin: -10px;
     flex-wrap: wrap;
+    min-height: 100px;
   }
   
+  /* Logo */
+  .navbar a img {
+    width: 75px;
+    height: 75px;
+    margin: 5px;
+    margin-right: 20px;
+    border-radius: 10px;
+    vertical-align: middle;
+  }
+
   /* Navbar Header */
   .navbar span {
     font-size: xx-large;
@@ -54,13 +37,15 @@ html {
     color: #f2f2f2;
     margin-right: 25px;
   }
-  /* Logo */
-  .navbar a img {
-    width: 75px;
-    height: 75px;
-    margin: 5px;
+
+  /* Hamburger Menu */
+  .hamburger {
+    display: none;
+    float: right;
     margin-right: 10px;
-    vertical-align: middle;
+    margin-top: 10px;
+    color: #f2f2f2;
+    font-size: 30px;
   }
 
   .navbar a:hover img {
@@ -80,9 +65,10 @@ html {
 
   /* (class 'nav-item') Position the navigation items at the bottom */
   .navbar .nav-item {
+    display: block;
     font-size: large;
     position: relative;
-    vertical-align: center;
+    /* vertical-align: center; */
     margin-top: 35px;
   }
   
@@ -101,29 +87,25 @@ html {
     color: #dddddd;
   }
 
-  /* Make special items float on the right */
-  .navbar .connect {
-    float: right;
-    font-size: large;
-    border-radius: 50px;
-    background-color: #1DB954;
-    color: white;
-    position: relative;
-    bottom: -35px;
-    right: 25px;
-    border: none;
-    font-weight: normal;
+@media (max-width: 900px) {
+  .links {
+    display: none;
   }
-
-  .navbar .connect img {
-    width: 30px;
-    height: 30px;
-    margin: 10px;
-    vertical-align: middle;
+  /* Top element: */
+  .navbar a {
+    width: 100%;
   }
+  .navbar .samgjl {
+    display: none;
+  }
+  .navbar .hamburger {
+    display: block;
+  }
+  /* Center elements inside the .links class */
+  .navbar .nav-item {
+    margin-top: 0px;
+    text-align: center;
+    border-radius: 0px;
+  }
+}
   
-  .navbar .connect:hover {
-    background-color: rgba(0, 0, 0, 1);
-    filter: invert(1);
-    cursor: pointer;
-  }
