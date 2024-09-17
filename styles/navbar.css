@@ -4,6 +4,10 @@ html {
   overflow-x: hidden;
 }
 
+body {
+  margin: 0;
+}
+
 .content {
   margin-top: 25px;
   min-height: 100vh;
@@ -12,9 +16,8 @@ html {
 /*++++++++++ HEADER ++++++++++*/
 
 .navbar {
-    background-color: #191414;
+    background-color: #03001C;
     overflow: hidden;
-    margin: -10px;
     flex-wrap: wrap;
     min-height: 100px;
   }
@@ -29,21 +32,24 @@ html {
     vertical-align: middle;
   }
 
-  .navbar a img:hover {
-    /* Purple! */
-    /* filter: hue-rotate(110deg); */
-    filter:saturate(1.5);
-  }
-
   /* Navbar Header */
   .navbar span {
     font-size: 42px;
     font-weight: bold;
     vertical-align: middle;
-    color: #f2f2f2;
+    color: #c7f1e5;
     margin-right: 25px;
     padding: 0px 5px 5px 5px;
     border-radius: 10px;
+  }
+
+  .navbar a:hover img {
+    /* Purple! */
+    /* filter: hue-rotate(110deg); */
+    filter:saturate(1.5);
+  }
+  .navbar a:hover span {
+    color: #f4fffc;
   }
 
   /* Hamburger Menu */
@@ -58,8 +64,6 @@ html {
 
   /* Links inside the navbar */
   .navbar a {
-    /* border-radius: 10px 10px 2px 2px; */
-    /* Placement and color */
     border-radius: 10px;
     float: left;
     color: #f2f2f2;
@@ -79,21 +83,27 @@ html {
   
   /* (class 'nav-item') Change the color of navigation items on hover */
   .navbar .nav-item:hover {
-    background-color: #ddd;
+    /* background-color: #ddd; */
+    background-color: #c7f1e5;
     color: black;
   }
   
   /* Add a color to the active tab */
   .navbar a.active,span.active {
     /* background: linear-gradient(144deg,#b650ff, #7261df, #00bcc9); */
-    background: linear-gradient(144deg,#a04fda, #4ad8a9);
+    background: linear-gradient(144deg,#6c4dc7, #4ad8a9);
+    /* background: linear-gradient(144deg, 
+                              #a04fda 0%, 
+                              #4ad8a9 30%, 
+                              #4ad8a9 70%, 
+                              #a04fda 100%); */
   }
 
   .navbar a.active:hover {
     color: #dddddd;
   }
 
-/* Collapsable menu for mobile devices */
+/* Collapsible menu for mobile devices */
 @media (max-width: 500px) {
   /* Top element: */
   .navbar a {
