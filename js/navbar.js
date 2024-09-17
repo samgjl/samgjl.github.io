@@ -23,21 +23,13 @@ class NavBar extends HTMLElement {
         </nav>`;
     }
 }
+customElements.define('nav-bar', NavBar);
 
 function hamburger() {
     let links = document.querySelector(".links");
-    if (links.classList.contains("expanded")) {
-        links.classList.remove("expanded");
-        links.classList.add("collapsed");
-    } else {
-        links.classList.remove("collapsed");
-        links.classList.add("expanded");
-    }
-    // if (links.style.display === "block") {
-    //     links.style.display = "none";
-    // } else {
-    //     links.style.display = "block";
-    // }
+    let hamburger = document.querySelector(".hamburger").children[0];
+    links.classList.toggle("collapsed");
+    links.classList.toggle("expanded");
+    hamburger.classList.toggle("fa-bars");
+    hamburger.classList.toggle("fa-times");
 }
-
-customElements.define('nav-bar', NavBar);
