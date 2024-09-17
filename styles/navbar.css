@@ -29,13 +29,21 @@ html {
     vertical-align: middle;
   }
 
+  .navbar a img:hover {
+    /* Purple! */
+    /* filter: hue-rotate(110deg); */
+    filter:saturate(1.5);
+  }
+
   /* Navbar Header */
   .navbar span {
-    font-size: xx-large;
+    font-size: 42px;
     font-weight: bold;
     vertical-align: middle;
     color: #f2f2f2;
     margin-right: 25px;
+    padding: 0px 5px 5px 5px;
+    border-radius: 10px;
   }
 
   /* Hamburger Menu */
@@ -48,9 +56,6 @@ html {
     font-size: 30px;
   }
 
-  .navbar a:hover img {
-    filter: brightness(0.8);
-  }
   /* Links inside the navbar */
   .navbar a {
     /* border-radius: 10px 10px 2px 2px; */
@@ -78,9 +83,10 @@ html {
     color: black;
   }
   
-  /* (class 'active') Add a color to the active/current link */
-  .navbar a.active {
-    background: linear-gradient(144deg,#b650ff, #7261df, #00bcc9);
+  /* Add a color to the active tab */
+  .navbar a.active,span.active {
+    /* background: linear-gradient(144deg,#b650ff, #7261df, #00bcc9); */
+    background: linear-gradient(144deg,#a04fda, #4ad8a9);
   }
 
   .navbar a.active:hover {

@@ -1,0 +1,9 @@
+node_modules/
+game-of-life/
+
+/target
+**/*.rs.bk
+Cargo.lock
+bin/
+pkg/
+wasm-pack.log

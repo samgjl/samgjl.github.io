@@ -1,0 +1,22 @@
+{
+  "name": "samgjl.github.io",
+  "version": "1.0.0",
+  "description": "Personal website for Sam Johnson-Lacoss",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server -p 8080"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samgjl/samgjl.github.io.git"
+  },
+  "author": "Samuel Johnson-Lacoss",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samgjl/samgjl.github.io/issues"
+  },
+  "homepage": "https://github.com/samgjl/samgjl.github.io#readme",
+  "dependencies": {
+    "http-server": "^14.1.1"
+  }
+}
