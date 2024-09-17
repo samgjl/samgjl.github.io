@@ -87,21 +87,8 @@ html {
     color: #dddddd;
   }
 
-@media (max-width: 900px) {
-
-  .links.collapsed a,.nav-item {
-    height: 0;
-    opacity: 0;
-    padding: 0;
-    transition: all 0.5s;
-  }
-  
-  .links.expanded a,.nav-item {
-    height: 30px;
-    opacity: 1;
-    transition: all 0.5s;
-  }
-
+/* Collapsable menu for mobile devices */
+@media (max-width: 500px) {
   /* Top element: */
   .navbar a {
     width: 100%;
@@ -112,14 +99,27 @@ html {
     padding: 0px;
   }
   .navbar .samgjl {
-    display: none;
+    margin-left: 10px;
   }
   .navbar .hamburger {
     display: block;
     margin: 0px;
     padding: 0px;
+    margin-bottom: 10px;
   }
-  /* Center elements inside the .links class */
+  /* Transitions */
+  .links.collapsed a,.nav-item {
+    height: 0;
+    opacity: 0;
+    padding: 0;
+    transition: all 0.5s;
+  }
+  .links.expanded a,.nav-item {
+    height: 30px;
+    opacity: 1;
+    transition: all 0.5s;
+  }
+  /* Subsequent menu options */
   .navbar .nav-item {
     margin-top: 0px;
     text-align: center;
