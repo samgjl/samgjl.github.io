@@ -16,7 +16,8 @@ class NavBar extends HTMLElement {
                 </a>
             <div class="links collapsed">
                 <a id="projects" class='nav-item' href="./projects">Projects</a>
-                <a id="about" class='nav-item' href="./about">About</a>
+                <a id="resume" class='nav-item' href="./resume">Resume</a>
+                <a id="about" class='nav-item' href="./about">About/Contact</a>
                 <a id="github" class='nav-item' href="https://github.com/samgjl" target="_blank">
                     Github <i class="fa fa-external-link"></i>
                 </a>

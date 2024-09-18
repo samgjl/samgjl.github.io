@@ -4,7 +4,8 @@
   "description": "Personal website for Sam Johnson-Lacoss",
   "main": "index.html",
   "scripts": {
-    "start": "http-server -p 8080"
+    "start": "http-server -p 8080",
+    "deploy": "gh-pages -d ."
   },
   "repository": {
     "type": "git",

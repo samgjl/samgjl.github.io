@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>samgjl | Projects</title>
+    <title>samgjl | About</title>
 
     <link rel="stylesheet" href="styles/parallax.css">
     <script src="js/navbar.js"></script>
@@ -12,11 +12,14 @@
 <body>
     <nav-bar></nav-bar>
     <script>
-        document.querySelector('nav-bar').setActive("projects");
+        document.querySelector('nav-bar').setActive("resume");
     </script>
-    <h1>Projects</h1>
+
+    <div class="content">
+        <iframe src="static/resume.pdf#navpanes=0&view=fit" style="width: 100%; border: none; min-height: 100vh; margin-bottom: -10px;"></iframe>
+    </div>
     
-    <div class="content"></div>
     <custom-footer></custom-footer>
+    
 </body>
 </html>

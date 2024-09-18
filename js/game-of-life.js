@@ -5,27 +5,15 @@ class Universe {
     width;
     height;
     cells;
+    cellSize;
     gridHTML;
 
-    constructor(height, width) {
+    constructor(height, width, cellSize = 10) {
         this.height = height;
         this.width = width;
+        this.cellSize = cellSize;
         this.cells = new Uint8Array(width * height).fill(DEAD);
         this.randomize();
-    }
-
-    initGrid() {
-        let grid = document.querySelector("#game-of-life");
-        grid.style.gridTemplateRows = `repeat(${this.height}, 1fr)`;
-        grid.style.gridTemplateColumns = `repeat(${this.width}, 1fr)`;
-        grid.style.width = `${this.width * 10}px`;
-
-        for (let i = 0; i < this.width * this.height; i++) {
-            let cell = document.createElement("div");
-            cell.classList.add("cell");
-            grid.appendChild(cell);
-        }
-        this.gridHTML = grid;
     }
 
     randomize(deterministic = false) {
@@ -108,11 +96,57 @@ class Universe {
         return output;
     }
 
+    
+    // + HTML Rendering:
+
+    static htmlAIO() {
+        let width = window.innerWidth;
+        let numCols = 100;
+        let uni = new Universe(numCols, numCols, Math.round(width/numCols));
+        // Resize canvas when window is resized
+        uni.randomize();
+        uni.initGrid();
+
+        window.onresize = () => {
+            uni.resize(window.innerWidth);
+        }
+        setInterval(() => {
+            uni.renderLoop();
+        }, 1000/20);
+    }
+
     clearHTML() {
         for (let i = 0; i < this.cells.length; i++) {
             this.gridHTML.children[i].classList.remove("alive");
         }
     }
+
+    initGrid() {
+        let grid = document.querySelector("#game-of-life");
+        grid.style.gridTemplateRows = `repeat(${this.height}, 1fr)`;
+        grid.style.gridTemplateColumns = `repeat(${this.width}, 1fr)`;
+        grid.style.width = `${this.width * this.cellSize}px`;
+
+        for (let i = 0; i < this.width * this.height; i++) {
+            let cell = document.createElement("div");
+            cell.classList.add("cell");
+            cell.style.width = `${this.cellSize}px`;
+            cell.style.height = `${this.cellSize}px`;
+            grid.appendChild(cell);
+        }
+        this.gridHTML = grid;
+    }
+
+
+    resize(winWidth) {
+        this.cellSize = Math.round(winWidth / this.width);
+        for (let i = 0; i < this.cells.length; i++) {
+            let cell = this.gridHTML.children[i];
+            cell.style.width = `${this.cellSize}px`;
+            cell.style.height = `${this.cellSize}px`;
+        }
+    }
+        
 
     // Render the universe to the grid
     render() {
@@ -133,5 +167,27 @@ class Universe {
     renderLoop() {
         this.tick();
         this.render();
+    }
+
+    // + P5.js Rendering:
+
+    initP5(height, width) {
+        var canvas = createCanvas(width, height);
+        canvas.parent("game-of-life");
+        this.randomize();
+        this.renderP5();
+    }
+
+    renderP5() {
+        for (let i = 0; i < uni.height; i++) {
+            for (let j = 0; j < uni.width; j++) {
+                if (uni.get(i, j) == 1) {
+                    fill(25);
+                } else {
+                    fill(0);
+                }
+                square(j * uni.cellSize, i * uni.cellSize, uni.cellSize);
+            }
+        }
     }
 }

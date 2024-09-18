@@ -4,23 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="js/navbar.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/game-of-life.js"></script>
+    <link rel="stylesheet" href="styles/index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.8.0/p5.js"></script>
     <title>samgjl</title>
 </head>
 <body>
     <nav-bar></nav-bar>
-    <div style="height: 100px;"></div>
 
-    <script src="js/game-of-life.js"></script>
-    <link rel="stylesheet" href="styles/game-of-life.css">
-    <div id="game-of-life" class="game-of-life"></div>
-    <script>
-        let uni = new Universe(150, 150);
-        uni.randomize();
-        uni.initGrid();
-        
-        setInterval(() => {
-            uni.renderLoop();
-        }, 1000/30);
-    </script>        
+        <div id="game-of-life" class="game-of-life"></div>
+
+
+        <link rel="stylesheet" href="styles/game-of-life.css">
+        <div id="game-of-life" class="game-of-life"></div>
+        <script>
+            let size = Math.max(window.innerWidth, window.innerHeight);
+            let uni = new Universe(100, 100, Math.round(size/100));
+            function setup() {
+                uni.initP5(size, size);
+                frameRate(15);
+            }
+            function draw() {
+                uni.tick();                
+                uni.renderP5();
+            }
+            window.onresize = function () {
+                size = Math.max(window.innerWidth, window.innerHeight);
+                uni.cellSize = size/uni.width;
+                resizeCanvas(size, size);
+            }
+        </script>
+    <custom-footer></custom-footer>
 </body>
 </html>
