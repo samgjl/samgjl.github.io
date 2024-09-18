@@ -25,7 +25,6 @@ class CustomFooter extends HTMLElement {
         </footer>
         `;
     }
-
 }
 
 // Define the custom element

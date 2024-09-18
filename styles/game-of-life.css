@@ -1,3 +1,7 @@
+body {
+    margin: 0;
+}
+
 .game-of-life {
     display: grid;
     gap: 0px;
@@ -20,3 +24,47 @@
     opacity: 1;
     /* transition: opacity 1s; */
 }
+
+.gol-button {
+    float: right;
+    background-color: #b6eada9c;
+    border: none;
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 25%;
+}
+
+.gol-button.fixed {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    top: 150px;
+}
+
+.gol-button:hover {
+    background-color: #B6EADA;
+}
+
+.gol-button i {
+    font-size: x-large;
+}
+
+
+.gol-button:focus i {
+    animation-name: rotateAnim;
+    animation-duration:0.5s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+@keyframes rotateAnim {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+  

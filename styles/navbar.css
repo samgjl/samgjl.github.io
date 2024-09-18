@@ -19,6 +19,7 @@ body {
     overflow: hidden;
     flex-wrap: wrap;
     min-height: 100px;
+    z-index: 100;
   }
   
   /* Logo */
@@ -103,7 +104,7 @@ body {
   }
 
 /* Collapsible menu for mobile devices */
-@media (max-width: 500px) {
+@media (max-width: 800px) {
   /* Top element: */
   .navbar a {
     width: 100%;

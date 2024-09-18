@@ -3,20 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>samgjl | Projects</title>
-
-    <link rel="stylesheet" href="styles/parallax.css">
     <script src="js/navbar.js"></script>
     <script src="js/footer.js"></script>
+    <link rel="stylesheet" href="styles/parallax.css">
+    <link rel="stylesheet" href="styles/projects.css">
+    <title>samgjl</title>
 </head>
 <body>
     <nav-bar></nav-bar>
     <script>
         document.querySelector('nav-bar').setActive("projects");
     </script>
-    <h1>Projects</h1>
-    
-    <div class="content"></div>
+
+    <div class="content">
+        <div class="parallax-wrapper first">
+            <div id="game-of-life" class="game-of-life parallax">
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.8.0/p5.js"></script>
+                <link rel="stylesheet" href="styles/game-of-life.css">
+                <script src="js/game-of-life.js"></script>
+                <script src="js/gol-p5.js"></script>
+            </div>
+            <button class="gol-button fixed" onclick="reset()">
+                <i class="fa fa-refresh" aria-hidden="true"></i>
+            </button>
+            <div class="left parallax">
+                <h2>Conway's Game of Life | <i style="font-size: smaller;"><a href="https://github.com/levshuster">levshuster</a>, samgjl</i></h2>
+                <ul style="max-width: 80%;">
+                    <li>Conway's game embodies my love for algorithms. With such a <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life#Rules">simple ruleset</a>, 
+                        one can generate entire worlds!</li>
+                    <li>This was actually my first project in pure Javascript.</li>
+                    <li>Nowadays, I use the Game of Life to learn new languages.</li>
+                    <li><b>Tools:</b> HTML/CSS, JS, Github Pages</li>
+                    <li><b>Learning goals:</b> HTML/CSS, JavaScript, Web hosting</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="parallax-wrapper r">
+            <!-- <img class="parallax" src="static/placeholder.png" alt="placeholder" style="width: 100%; height: 100%;"> -->
+            <embed class="parallax" src="https://samgjl.github.io/game-of-life-3d/" style="width: 100%; height: 100%;">
+            <div class="right parallax">
+                <h2>The Game of Life, now in 3D! | <i style="font-size: smaller;">samgjl</i></h2>
+                <ul style="max-width: 80%;">
+                    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</li>
+                </ul>
+            </div>
+        </div> 
+
+        <div class="parallax-wrapper l" style="height: 75vh;">
+            <img class="parallax" src="static/placeholder.png" alt="placeholder" style="width: 100%; height: 100%;">
+        </div> 
+    </div>    
+
     <custom-footer></custom-footer>
 </body>
 </html>

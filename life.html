@@ -3,38 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="js/navbar.js"></script>
-    <script src="js/footer.js"></script>
-    <script src="js/game-of-life.js"></script>
-    <link rel="stylesheet" href="styles/index.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.8.0/p5.js"></script>
+    <link rel="stylesheet" href="styles/parallax.css">
+    <link rel="stylesheet" href="styles/game-of-life.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>samgjl</title>
+    <style>
+        body {
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
-    <nav-bar></nav-bar>
-
-        <div id="game-of-life" class="game-of-life"></div>
-
-
-        <link rel="stylesheet" href="styles/game-of-life.css">
-        <div id="game-of-life" class="game-of-life"></div>
-        <script>
-            let size = Math.max(window.innerWidth, window.innerHeight);
-            let uni = new Universe(100, 100, Math.round(size/100));
-            function setup() {
-                uni.initP5(size, size);
-                frameRate(15);
-            }
-            function draw() {
-                uni.tick();                
-                uni.renderP5();
-            }
-            window.onresize = function () {
-                size = Math.max(window.innerWidth, window.innerHeight);
-                uni.cellSize = size/uni.width;
-                resizeCanvas(size, size);
-            }
-        </script>
-    <custom-footer></custom-footer>
+    <div id="game-of-life" class="game-of-life parallax">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.8.0/p5.js"></script>
+        <script src="js/game-of-life.js"></script> <!-- Source code for the game of life-->
+        <script src="js/gol-p5.js"></script> <!-- P5 initialization code for the game of life-->
+    </div>
+    <button class="gol-button" onclick="reset()">
+        <i class="fa fa-refresh" aria-hidden="true"></i>
+    </button>
 </body>
 </html>

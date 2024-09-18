@@ -7,6 +7,7 @@ class Universe {
     cells;
     cellSize;
     gridHTML;
+    paused = false;
 
     constructor(height, width, cellSize = 10) {
         this.height = height;
@@ -39,6 +40,16 @@ class Universe {
     get(row, col) {
         return this.cells[row * this.height + col];
     }
+    togglePause() {
+        this.paused = !this.paused;
+    }
+    play() {
+        this.paused = false;
+    }
+    pause() {
+        this.paused = true;
+    }
+
 
     // Count the number of alive neighbors
     countNeighbors(row, col) {
@@ -60,6 +71,8 @@ class Universe {
 
     // Update the universe state
     tick() {
+        if (this.paused) return;
+
         let next_cells = new Uint8Array(this.cells.length);
 
         for (let row = 0; row < this.height; row++) {
@@ -86,6 +99,7 @@ class Universe {
 
     // Render a string representation of the universe
     toString() {
+        if (this.paused) return;
         let output = "";
         for (let row = 0; row < this.height; row++) {
             for (let col = 0; col < this.width; col++) {
@@ -150,6 +164,7 @@ class Universe {
 
     // Render the universe to the grid
     render() {
+        if (this.paused) return;
         let cell;
         for (let i = 0; i < this.cells.length; i++) {
             cell = this.gridHTML.children[i];
@@ -165,29 +180,8 @@ class Universe {
     }
 
     renderLoop() {
+        if (this.paused) return;
         this.tick();
         this.render();
-    }
-
-    // + P5.js Rendering:
-
-    initP5(height, width) {
-        var canvas = createCanvas(width, height);
-        canvas.parent("game-of-life");
-        this.randomize();
-        this.renderP5();
-    }
-
-    renderP5() {
-        for (let i = 0; i < uni.height; i++) {
-            for (let j = 0; j < uni.width; j++) {
-                if (uni.get(i, j) == 1) {
-                    fill(25);
-                } else {
-                    fill(0);
-                }
-                square(j * uni.cellSize, i * uni.cellSize, uni.cellSize);
-            }
-        }
     }
 }

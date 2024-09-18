@@ -1,0 +1,66 @@
+.content {
+    background-color: #03001C;
+}
+
+.content .left {
+    left: 40px;
+    margin-top: 25vh;
+    width: 50%;
+    padding-left: 20px;
+    border-radius: 10px;
+    text-wrap: normal;
+    text-align: left;
+    text-decoration: none;
+    background-color: #ffffffe0;
+}
+
+.content .right {
+    right: 40px;
+    margin-top: 25vh;
+    width: 50%;
+    padding-left: 20px;
+    border-radius: 10px;
+    text-wrap: normal;
+    text-align: left;
+    text-decoration: none;
+    background-color: #ffffffe0;
+}
+
+.content .left h2 
+.content .right h2 
+{
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    font-weight: 500;
+}
+
+.content ul {
+    list-style-type:symbols();
+    padding-left: 0;
+}
+
+.content li {
+    margin-left: 30px;
+}
+
+h2 a {
+    text-decoration: none;
+    color: #5B8FB9;
+}
+
+i a, li a {
+    text-decoration: none;
+    color: #5B8FB9;
+}
+
+.parallax-wrapper.first {
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 90%);
+}
+.parallax-wrapper.r {
+    clip-path: polygon(0 0, 100% 10%, 100% 90%, 0 100%);
+}
+.parallax-wrapper.l {
+    clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 90%);
+}
