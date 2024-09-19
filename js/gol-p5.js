@@ -10,6 +10,7 @@ function initP5(height, width) {
     c.parent("game-of-life");
     uni.randomize();
     renderP5();
+
 }
 
 function renderP5() {
@@ -19,7 +20,7 @@ function renderP5() {
     for (let i = 0; i < uni.height; i++) {
         for (let j = 0; j < uni.width; j++) {
             if (uni.get(i, j) == 1) {
-                fill(33); // TODO: Make this a gradient
+                fill(40); // TODO: Make this a gradient
             } else {
                 fill(0);
             }

@@ -38,6 +38,7 @@ body {
 
 .gol-button.fixed {
     position: fixed;
+    z-index: 1;
     top: 10px;
     right: 10px;
     top: 150px;
