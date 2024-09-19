@@ -11,12 +11,25 @@
 </head>
 <body>
     <nav-bar></nav-bar>
+    <div class="scrollBar-wrapper">
+        <div class="scrollBar"> </div>
+    </div>
+
     <script>
         document.querySelector('nav-bar').setActive("projects");
+        let scrollBar = document.querySelector('.scrollBar');
+        setInterval(() => {
+            let raycastedElement = document.elementFromPoint(5, 250);
+            // TODO: animate scrollbar on transition between timestamps?
+            scrollBar.innerHTML = raycastedElement.id || "samgjl";
+            console.log(window.scrollY / document.body.scrollHeight * 100);
+            scrollBar.style.top = `${(window.scrollY / document.body.scrollHeight * 140)}%`;
+        }, 200);
     </script>
 
     <div class="content">
-        <div class="parallax-wrapper first">
+        <div class="parallax-wrapper first r" style="background-color: black;">
+            <div id="Apr 2023" class="invis-scroll"></div>
             <div id="game-of-life" class="game-of-life parallax">
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.8.0/p5.js"></script>
                 <link rel="stylesheet" href="styles/game-of-life.css">
@@ -26,8 +39,8 @@
             <button class="gol-button fixed" onclick="reset()">
                 <i class="fa fa-refresh" aria-hidden="true"></i>
             </button>
-            <div class="left parallax">
-                <h2>Conway's Game of Life | <i style="font-size: smaller;"><a href="https://github.com/levshuster">levshuster</a>, samgjl</i></h2>
+            <div class="caption left parallax">
+                <h2><a href="https://levshuster.github.io/game-of-life" target="_blank">Conway's Game of Life<i class="fa fa-external-link" aria-hidden="true" style="font-size: smaller;"></i></a> | <i style="font-size: smaller;"><a href="https://github.com/levshuster">levshuster</a>, samgjl</i></h2>
                 <ul style="max-width: 80%;">
                     <li>Conway's game embodies my love for algorithms. With such a <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life#Rules">simple ruleset</a>, 
                         one can generate entire worlds!</li>
@@ -39,18 +52,19 @@
             </div>
         </div>
         
-        <div class="parallax-wrapper r">
+        <div class="parallax-wrapper l">
+            <div id="Oct 2023" class="invis-scroll"></div>
             <!-- <img class="parallax" src="static/placeholder.png" alt="placeholder" style="width: 100%; height: 100%;"> -->
-            <embed class="parallax" src="https://samgjl.github.io/game-of-life-3d/" style="width: 100%; height: 100%;">
-            <div class="right parallax">
-                <h2>The Game of Life, now in 3D! | <i style="font-size: smaller;">samgjl</i></h2>
+            <embed class="parallax" src="https://samgjl.github.io/game-of-life-3d/?disable_scroll=true&hide_gui=true&rules=4555" style="width: 130%; height: 100%; left: -30%">
+            <div class="caption right parallax">
+                <h2><a href="https://samgjl.github.io/game-of-life-3d/?rules=4555" target="_blank">The Game of Life, now in 3D!<i class="fa fa-external-link" aria-hidden="true" style="font-size: smaller;"></i></a> | <i style="font-size: smaller;">samgjl</i></h2>
                 <ul style="max-width: 80%;">
                     <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</li>
                 </ul>
             </div>
         </div> 
 
-        <div class="parallax-wrapper l" style="height: 75vh;">
+        <div class="parallax-wrapper last r" style="height: 100vh;">
             <img class="parallax" src="static/placeholder.png" alt="placeholder" style="width: 100%; height: 100%;">
         </div> 
     </div>    
