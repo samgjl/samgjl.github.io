@@ -3,15 +3,18 @@
 let size = Math.max(window.innerWidth, window.innerHeight);
 let cols = 150;
 const uni = new Universe(cols, cols, Math.round(size/cols));
+let ctx;
 
 function initP5(height, width) {
-    var canvas = createCanvas(width, height);
-    canvas.parent("game-of-life");
+    var c = createCanvas(width, height, P2D);
+    c.parent("game-of-life");
     uni.randomize();
     renderP5();
 }
 
 function renderP5() {
+    let oldCells = uni.cells.slice();
+    uni.tick();
     if (uni.paused) return;
     for (let i = 0; i < uni.height; i++) {
         for (let j = 0; j < uni.width; j++) {
@@ -20,7 +23,9 @@ function renderP5() {
             } else {
                 fill(0);
             }
-            square(j * uni.cellSize, i * uni.cellSize, uni.cellSize);
+            if (uni.get(i, j) != oldCells[uni.index(i, j)]) {
+                rect(j * uni.cellSize, i * uni.cellSize, uni.cellSize, uni.cellSize);
+            }
         }
     }
 }
@@ -36,10 +41,7 @@ function setup() {
     resize(); // For good measure
     frameRate(15);
 }
-draw = function () {
-    uni.tick();                
-    renderP5();
-}
+draw = renderP5;
 
 window.onresize = resize;
 
@@ -49,7 +51,7 @@ function reset() {
 }
 
 setInterval(() => {
-    let elem = document.elementFromPoint(10, 175);
+    let elem = document.elementFromPoint(window.innerWidth * 0.75, 175);
     if (elem.classList[0] == "p5Canvas") {
         uni.play();
     } else {
