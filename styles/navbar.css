@@ -19,7 +19,6 @@ body {
     overflow: hidden;
     flex-wrap: wrap;
     min-height: 100px;
-    z-index: 100;
   }
   
   /* Logo */
