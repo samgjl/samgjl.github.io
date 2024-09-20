@@ -22,12 +22,12 @@
             let raycastedElement = document.elementFromPoint(5, 250);
             // TODO: animate scrollbar on transition between timestamps?
             scrollBar.innerHTML = raycastedElement.id || "samgjl";
-            console.log(window.scrollY / document.body.scrollHeight * 100);
             scrollBar.style.top = `${(window.scrollY / document.body.scrollHeight * 140)}%`;
         }, 200);
     </script>
 
     <div class="content">
+        <!-- + GAME OF LIFE + -->
         <div class="parallax-wrapper first r" style="background-color: black;">
             <div id="Apr 2023" class="invis-scroll"></div>
             <div id="game-of-life" class="game-of-life parallax">
@@ -52,6 +52,7 @@
             </div>
         </div>
         
+        <!-- + GAME OF LIFE 3D + -->
         <div class="parallax-wrapper l">
             <div id="Oct 2023" class="invis-scroll"></div>
             <!-- <img class="parallax" src="static/placeholder.png" alt="placeholder" style="width: 100%; height: 100%;"> -->
@@ -59,12 +60,70 @@
             <div class="caption right parallax">
                 <h2><a href="https://samgjl.github.io/game-of-life-3d/?rules=4555" target="_blank">The Game of Life, now in 3D! <i class="fa fa-external-link" aria-hidden="true" style="font-size: smaller;"></i></a> | <i style="font-size: smaller;">samgjl</i></h2>
                 <ul style="max-width: 80%;">
-                    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</li>
+                    <li>Expanded upon John Conway's Game of Life with a GitHub-hosted web application</li>
+                    <li>Researched and developed modular API for the Game higher dimensions</li>
+                    <li>Implemented with <a href="https://threejs.org/">THREE.js</a> following <a href="https://content.wolfram.com/sites/13/2018/02/01-3-1.pdf">Bays (1987)</a></li>
+                    <li><b>Tools:</b> JavaScript, THREE.js, Vite.js, Github Pages</li>
+                    <li><b>Learning goals:</b> GitHub Actions, dynamic 3D rendering, dimensionality exploration</li>
                 </ul>
             </div>
         </div> 
 
-        <div class="parallax-wrapper last r" style="height: 100vh;">
+        <!-- + XView2 Challenge + -->
+        <div class="parallax-wrapper r" style="background-color: white;">
+            <div id="Nov 2023" class="invis-scroll"></div>
+            <div class="xview2">
+                <img src="static/xview2.png" alt="Architecture for the XView2 Challenge">
+            </div>
+            <div class="caption left" style="margin-left: 40px;">
+                <h2><a href="https://github.com/samgjl/XView2-Challenge" target="_blank">XView2 Challenge <i class="fa fa-external-link" aria-hidden="true" style="font-size: smaller;"></i></a> | <i style="font-size: smaller;"><a href="https://github.com/lily-haas" target="_blank">lily-haas</a>, <a href="https://github.com/roslanskyc" target="_blank">roslanskyc</a>, samgjl</i></h2>
+                <ul style="max-width: 80%;">
+                    <li>Adapted biomedical imaging model U-Net to find and report damage in natural disasters</li>
+                    <li>Engaged with the ethics of military-funded machine learning</li>
+                    <li>Architecture design, results, and ethics may be found <a href="static/cs320.pdf" target="_blank">here <i class="fa fa-external-link" aria-hidden="true" style="font-size: smaller;"></i></a> </li>
+                    <li><b>Tools:</b> Python: Tensorflow/Keras, Numpy, Pandas</li>
+                    <li><b>Learning goals:</b> advanced machine learning architectures, machine vision, ethics in ML</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- + Advent of Code 2023 -->
+        <div class="parallax-wrapper l" style="background-color: black;">
+            <div id="Jan 2024" class="invis-scroll"></div>
+            <div class="parallax">
+                <img class="aoc" src="static/AoC.png">
+            </div>
+            <!-- <div class="parallax" style="background-color: black;"></div> -->
+            <div class="caption right parallax aoc-caption">
+                <h2><a href="https://github.com/samgjl/advent-of-code-2023">Advent of Code (2023) <i class="fa fa-external-link" aria-hidden="true" style="font-size: smaller;"></i></a> | samgjl</h2>
+                <ul>
+                    <li>Undertook a 25-puzzle progressive coding challenge to practice deriving implementing algorithms across a variety of languages</li>
+                    <li>16/25 days completed due to college time constraints. Project will be resumed at a later date</li>
+                    <li><b>Tools:</b> Python, Java, C++, C#, Golang</li>
+                    <li><b>Learning goals:</b>Language acquisition, adaptive thinking, algorithm optimization</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="parallax-wrapper r" style="background-color: white;">
+            <div id="March 2024" class="invis-scroll"></div>
+            <div class="xview2">
+                <img src="static/xai/XAI-project-flow.svg" alt="Flow for the Explainable AI Project">
+            </div>
+            <div class="caption left" style="margin-left: 40px;">
+                <h2><a href="https://cs.carleton.edu/cs_comps/2324/explainable-ai/final-results/" target="_blank">XAI: Breaking Down the Black Box</a> | <i style="font-size: smaller"><a href="https://github.com/levshuster" target="_blank">levshuster</a>, samgjl, <a href="https://cosmcbun.github.io/Explainable-Ai-Comps-2024/About%20Us" target="_blank">et al.</a></i></h2>
+                <ul style="max-width: 80%;">
+                    <li>Co-lead a team of undergraduate researchers in an exploration of explainable machine learning techniques</li>
+                    <li>Administered a user study on public understanding of- and trust in explainable machine learning</li>
+                    <li>Piloted intradepartmental collaboration with <a href="https://cs.carleton.edu/cs_comps/2324/adversarial/final-results/adversarial/index.html" target="_blank">Adversarial AI research <i class="fa fa-external-link" aria-hidden="true" style="font-size: smaller;"></a></i></li>
+                    <li><b>Tools:</b> Python: PyTorch/Tensorflow/FastAPI, Docker, JavaScript</li>
+                    <li><b>Learning goals:</b> Machine learning interpretability, team leadership, user study design, collaborative research</li>
+                    <li><i>See my abridged work <a href="static/xai/XAI-poster.pdf" target="_blank">here <i class="fa fa-external-link" aria-hidden="true" style="font-size: smaller;"></i></a></i></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="parallax-wrapper last l" style="height: 100vh;">
             <img class="parallax" src="static/placeholder.png" alt="placeholder" style="width: 100%; height: 100%;">
         </div> 
     </div>    
