@@ -25,11 +25,8 @@ html {
     filter: drop-shadow(0 0 0.75rem #00000088);
 }
 
-/* .caption.left {
-    left: 60px;
-} */
 .caption.left {
-    margin-left: 65px;
+    margin-left: 70px;
 }
 
 .caption.right {
@@ -117,8 +114,9 @@ h2 a, i a, li a {
 }
 
 .scrollNode {
+    white-space: nowrap;
     position: relative;
-    left: 7px;
+    left: 5px;
     width: fit-content;
     filter: grayscale(1);
     scale: 0.6;
