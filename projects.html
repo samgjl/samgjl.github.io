@@ -14,18 +14,6 @@
     <div class="scrollBar-wrapper">
         <div class="scrollBar"> </div>
     </div>
-
-    <script>
-        document.querySelector('nav-bar').setActive("projects");
-        let scrollBar = document.querySelector('.scrollBar');
-        setInterval(() => {
-            let raycastedElement = document.elementFromPoint(5, 250);
-            // TODO: animate scrollbar on transition between timestamps?
-            scrollBar.innerHTML = raycastedElement.id || "samgjl";
-            scrollBar.style.top = `${(window.scrollY / document.body.scrollHeight * 140)}%`;
-        }, 200);
-    </script>
-
     <div class="content">
         <!-- + GAME OF LIFE + -->
         <div class="parallax-wrapper first r" style="background-color: black;">
@@ -72,10 +60,10 @@
         <!-- + XView2 Challenge + -->
         <div class="parallax-wrapper r" style="background-color: white;">
             <div id="Nov 2023" class="invis-scroll"></div>
-            <div class="xview2">
+            <div class="flat">
                 <img src="static/xview2.png" alt="Architecture for the XView2 Challenge">
             </div>
-            <div class="caption left" style="margin-left: 40px;">
+            <div class="caption left">
                 <h2><a href="https://github.com/samgjl/XView2-Challenge" target="_blank">XView2 Challenge <i class="fa fa-external-link" aria-hidden="true" style="font-size: smaller;"></i></a> | <i style="font-size: smaller;"><a href="https://github.com/lily-haas" target="_blank">lily-haas</a>, <a href="https://github.com/roslanskyc" target="_blank">roslanskyc</a>, samgjl</i></h2>
                 <ul style="max-width: 80%;">
                     <li>Adapted biomedical imaging model U-Net to find and report damage in natural disasters</li>
@@ -107,10 +95,10 @@
 
         <div class="parallax-wrapper r" style="background-color: white;">
             <div id="March 2024" class="invis-scroll"></div>
-            <div class="xview2">
+            <div class="flat">
                 <img src="static/xai/XAI-project-flow.svg" alt="Flow for the Explainable AI Project">
             </div>
-            <div class="caption left" style="margin-left: 40px;">
+            <div class="caption left">
                 <h2><a href="https://cs.carleton.edu/cs_comps/2324/explainable-ai/final-results/" target="_blank">XAI: Breaking Down the Black Box</a> | <i style="font-size: smaller"><a href="https://github.com/levshuster" target="_blank">levshuster</a>, samgjl, <a href="https://cosmcbun.github.io/Explainable-Ai-Comps-2024/About%20Us" target="_blank">et al.</a></i></h2>
                 <ul style="max-width: 80%;">
                     <li>Co-lead a team of undergraduate researchers in an exploration of explainable machine learning techniques</li>
@@ -118,16 +106,61 @@
                     <li>Piloted intradepartmental collaboration with <a href="https://cs.carleton.edu/cs_comps/2324/adversarial/final-results/adversarial/index.html" target="_blank">Adversarial AI research <i class="fa fa-external-link" aria-hidden="true" style="font-size: smaller;"></a></i></li>
                     <li><b>Tools:</b> Python: PyTorch/Tensorflow/FastAPI, Docker, JavaScript</li>
                     <li><b>Learning goals:</b> Machine learning interpretability, team leadership, user study design, collaborative research</li>
-                    <li><i>See my abridged work <a href="static/xai/XAI-poster.pdf" target="_blank">here <i class="fa fa-external-link" aria-hidden="true" style="font-size: smaller;"></i></a></i></li>
+                    <li><i>See an abridged summary of my work <a href="static/xai/XAI-poster.pdf" target="_blank">here <i class="fa fa-external-link" aria-hidden="true" style="font-size: smaller;"></i></a></i></li>
                 </ul>
             </div>
         </div>
 
         <div class="parallax-wrapper last l" style="height: 100vh;">
+            <div id="Placeholder" class="invis-scroll"></div>
             <img class="parallax" src="static/placeholder.png" alt="placeholder" style="width: 100%; height: 100%;">
         </div> 
-    </div>    
+    </div>
 
     <custom-footer></custom-footer>
+    <script>
+        document.querySelector('nav-bar').setActive("projects");
+        let scrollBar = document.querySelector('.scrollBar');
+        let offset = scrollBar.getBoundingClientRect().height;
+        let invisScrolls = document.querySelectorAll('.invis-scroll');
+        let nodes = [];
+        let wrapper = document.querySelector('.scrollBar-wrapper');
+        for (let i = 0; i < invisScrolls.length; i++) {
+            let invis = invisScrolls[i];
+            let newDiv = document.createElement('div');
+            newDiv.classList.add('scrollNode');
+            newDiv.id = invis.id;
+            newDiv.innerHTML = invis.id;
+            newDiv.style.position = 'absolute';
+            let topCheck = i==0 ? 0 : 1
+            newDiv.style.top = `${topCheck * (invis.offsetTop / (document.body.scrollHeight - window.innerHeight) * 100)}%`;
+            wrapper.appendChild(newDiv);
+            nodes.push(newDiv);
+
+            newDiv.addEventListener('click', () => {
+                window.scroll({
+                    top: topCheck * (invis.offsetTop - offset),
+                    behavior: 'smooth'
+                });
+            });
+        }
+        let currentNode;
+        setInterval(() => {
+            let raycastedElement = document.elementFromPoint(window.innerWidth-1, 250);
+            scrollBar.style.top = `${(window.pageYOffset / (document.body.scrollHeight - window.innerHeight) * 100)}%`;
+            if (raycastedElement.classList.contains("invis-scroll")) {
+                for (let i = 0; i < nodes.length; i++) {
+                    if (raycastedElement.id == nodes[i].id) {
+                        if (currentNode) currentNode.classList.remove('active');
+                        currentNode = nodes[i];
+                        currentNode.classList.add("active");
+                        return;
+                    }
+                    
+                }
+            }
+
+        }, 200);
+    </script>
 </body>
 </html>
