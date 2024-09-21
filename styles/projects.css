@@ -168,9 +168,9 @@ h2 a, i a, li a {
 }
 
 @keyframes fadeDropShadow {
-    0% {filter: drop-shadow(0 0 0.75rem rgba(255, 251, 0, 0.5));}
+    0% {filter: drop-shadow(0 0 0.75rem rgba(158, 158, 158, 0.5));}
     50% {filter: drop-shadow(0 0 1rem rgb(255, 251, 0));}
-    100% {filter: drop-shadow(0 0 0.75rem rgba(255, 251, 0, 0.5));}
+    100% {filter: drop-shadow(0 0 0.75rem rgba(158, 158, 158, 0.5));}
 }
 .aoc-caption {
     animation: fadeDropShadow 4s infinite ease-in-out;
